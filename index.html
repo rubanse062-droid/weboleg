@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maria from LA — английский для жизни в США</title>
+<meta name="description" content="Персональное обучение и авторские продукты для русскоговорящих, которые живут или переезжают в США: понимать речь, говорить уверенно и решать задачи без переводчика.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0b;
+    --bg-2:#101012;
+    --bg-3:#15151a;
+    --ink:#f6f5f7;
+    --muted:#a9a7b0;
+    --dim:#6f6d77;
+    --line:rgba(255,255,255,.10);
+    --accent:#e11048;       /* малиновый MasterClass */
+    --accent-2:#f0b429;     /* тёплое золото для цифр */
+    --card:#141318;
+    --radius:14px;
+    --maxw:1160px;
+    --display:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+    --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+    --serif:'Inter',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{position:relative}
+
+  h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.06;letter-spacing:-.025em}
+  h1{font-size:clamp(40px,6.6vw,82px)}
+  h2{font-size:clamp(30px,5vw,62px)}
+  h3{font-size:clamp(18px,2.2vw,24px);letter-spacing:.02em}
+  .lead{font-family:var(--sans);font-size:clamp(16px,1.9vw,20px);color:var(--muted);text-transform:none;font-weight:400}
+  .accent{color:var(--accent)}
+  .serif-accent{color:var(--accent)}
+  .dash{width:56px;height:5px;background:var(--accent);border:none;margin:22px 0}
+  .lead{line-height:1.65}
+  .eyebrow{font-family:var(--sans);font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);display:inline-block;margin-bottom:18px}
+
+  .btn{display:inline-flex;align-items:center;gap:9px;cursor:pointer;font-family:var(--sans);font-weight:700;font-size:15px;border:none;border-radius:8px;padding:16px 28px;transition:transform .14s,background .14s,box-shadow .2s;text-transform:none}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(225,16,72,.4)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid rgba(255,255,255,.22)}
+  .btn-ghost:hover{border-color:#fff;transform:translateY(-2px)}
+  .btn-sm{padding:11px 20px;font-size:14px}
+  .btn-block{width:100%;justify-content:center}
+
+  /* PROMO BAR */
+  .promobar{background:#0e0d11;color:var(--muted);text-align:center;font-size:13px;font-weight:500;padding:8px 16px;letter-spacing:.01em;border-bottom:1px solid var(--line)}
+  .promobar b{font-weight:700;color:var(--accent-2)}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:60;background:rgba(10,10,11,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:center;gap:9px;font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:.04em;text-transform:uppercase}
+  .logo i{width:13px;height:13px;border-radius:3px;background:var(--accent);display:inline-block}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{font-size:14.5px;color:var(--muted);font-weight:500}
+  .nav-links a:hover{color:var(--ink)}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+  .burger span{width:24px;height:2px;background:var(--ink);border-radius:2px}
+
+  /* HERO */
+  .hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden}
+  .hero-photo{position:absolute;inset:0 0 0 38%;background:linear-gradient(135deg,#2a1f28,#15101a 60%,#0a0a0b);z-index:0}
+  .hero-photo .ph-figure{position:absolute;right:8%;bottom:0;width:46%;height:88%;background:
+      radial-gradient(60% 40% at 50% 28%, rgba(120,95,115,.55), transparent 70%),
+      linear-gradient(180deg,#3a2c38,#1a1420);border-radius:200px 200px 0 0;opacity:.9}
+  .hero-fade{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--bg) 30%,rgba(10,10,11,.65) 56%,rgba(10,10,11,.15) 80%,transparent)}
+  .hero-fade.bottom{background:linear-gradient(0deg,var(--bg),transparent 22%)}
+  .hero-glow{position:absolute;z-index:0;width:520px;height:520px;border-radius:50%;background:var(--accent);opacity:.14;filter:blur(40px);top:-120px;left:-80px}
+  .hero-inner{position:relative;z-index:2;width:100%;padding:60px 0}
+  .hero-inner h1{max-width:14ch}
+  .hero-tag{display:inline-block;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:rgba(255,255,255,.08);border:1px solid var(--line);padding:7px 14px;border-radius:100px;margin-bottom:26px}
+  .hero-sub{max-width:48ch;margin:10px 0 30px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+  .qual{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .qual .q-label{font-size:13px;color:var(--dim);margin-right:4px}
+  .chip{font-size:13.5px;color:var(--ink);background:var(--bg-3);border:1px solid var(--line);padding:9px 16px;border-radius:100px;cursor:pointer;transition:.14s}
+  .chip:hover,.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+
+  /* MARQUEE */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);overflow:hidden}
+  .strip-track{display:flex;gap:42px;white-space:nowrap;padding:15px 0;width:max-content;animation:scroll 30s linear infinite}
+  .strip-track span{font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;font-size:15px;color:var(--dim);display:inline-flex;gap:42px;align-items:center}
+  .strip-track span::after{content:"◆";color:var(--accent);font-size:9px}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  .sec{padding:clamp(64px,9vw,120px) 0}
+  .sec-head{max-width:760px;margin-bottom:52px}
+  .sec-head.center{margin:0 auto 52px;text-align:center}
+  .sec-head .lead{margin-top:18px}
+
+  /* PAIN */
+  .pain{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .pain-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;display:flex;gap:16px;align-items:flex-start}
+  .pain-card .qm{font-family:var(--display);font-size:30px;color:var(--accent);line-height:1}
+  .pain-card p{font-size:16px}
+  .pain-card p b{color:var(--ink)}
+  .pain-quote{font-style:italic;color:var(--muted)}
+  .pain-foot{margin-top:34px;text-align:center;font-family:var(--display);font-weight:700;letter-spacing:-.02em;font-size:clamp(20px,3vw,30px)}
+
+  /* RESULT */
+  .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .rcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:.18s}
+  .rcard:hover{transform:translateY(-4px);border-color:rgba(225,16,72,.5)}
+  .rcard .ic{width:44px;height:44px;border-radius:11px;background:rgba(225,16,72,.14);display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:16px}
+  .rcard p{color:var(--muted);font-size:15.5px}
+  .rcard b{color:var(--ink)}
+
+  /* FORMATS */
+  .fmt-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .fmt{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:36px;overflow:hidden}
+  .fmt.feat{border-color:rgba(225,16,72,.45)}
+  .fmt.feat::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent)}
+  .fmt .tag{font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:14px}
+  .fmt p{color:var(--muted);margin:14px 0 26px;font-size:15.5px}
+
+  /* PRODUCTS */
+  .prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .prod{display:grid;grid-template-columns:130px 1fr;gap:22px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:.18s}
+  .prod:hover{transform:translateY(-4px);border-color:rgba(240,180,41,.45)}
+  .cover{aspect-ratio:3/4;border-radius:10px;display:flex;flex-direction:column;justify-content:space-between;padding:15px;color:#fff;position:relative;overflow:hidden;min-height:160px}
+  .cover::after{content:"";position:absolute;right:-26px;bottom:-26px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.12)}
+  .cover-k{font-family:var(--sans);font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.85;margin-bottom:4px}
+  .cover-t{font-family:var(--display);text-transform:uppercase;font-size:17px;line-height:1.04;position:relative;z-index:1}
+  .cover-ic{font-size:26px;position:relative;z-index:1}
+  .cover-a{background:linear-gradient(150deg,#e11048,#8c0a2c)}
+  .cover-b{background:linear-gradient(150deg,#6d4ad6,#34227d)}
+  .cover-c{background:linear-gradient(150deg,#127a64,#0a4738)}
+  .cover-d{background:linear-gradient(150deg,#e0902a,#9c5a10)}
+  .prod h3{margin-bottom:8px}
+  .prod .who{font-size:13px;color:var(--accent-2);font-weight:600;margin-bottom:10px}
+  .prod p{color:var(--muted);font-size:14.5px;margin-bottom:10px}
+  .prod .res{font-size:14px;margin-bottom:16px}
+  .prod .res b{color:var(--accent-2)}
+
+  /* METHOD */
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .step .n{font-family:var(--display);font-size:34px;color:var(--accent);margin-bottom:10px}
+  .step h3{font-size:16px;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:13.5px;text-transform:none}
+  .step .res{margin-top:12px;font-size:12.5px;color:var(--accent-2);border-top:1px solid var(--line);padding-top:10px}
+
+  /* ABOUT */
+  .about{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .about-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:50px;align-items:center}
+  .about-photo{aspect-ratio:4/5;border-radius:var(--radius)}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .fact b{font-family:var(--display);display:block;font-size:30px;color:var(--accent-2)}
+  .fact span{font-size:13px;color:var(--muted)}
+  .teach{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+  .teach h4{font-family:var(--sans);font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+  .teach ul{list-style:none;font-size:14.5px;color:var(--muted)}
+  .teach li{padding:4px 0 4px 24px;position:relative}
+  .teach .yes li::before{content:"✓";position:absolute;left:0;color:#3ecf8e;font-weight:700}
+  .teach .no li::before{content:"✕";position:absolute;left:0;color:var(--dim)}
+
+  /* IMG placeholder (cinematic) */
+  .ph{position:relative;overflow:hidden;background:linear-gradient(135deg,#241a23,#120e16);display:flex;align-items:center;justify-content:center;text-align:center}
+  .ph .ph-fig{position:absolute;inset:0;background:radial-gradient(55% 42% at 50% 30%, rgba(130,100,120,.5), transparent 72%)}
+  .ph-label{position:relative;z-index:1;font-size:12.5px;color:var(--dim);padding:18px;line-height:1.5}
+  .ph-label b{display:block;color:var(--muted);font-size:14px;margin-bottom:4px}
+  .ph-tag{position:absolute;top:12px;left:12px;z-index:2;background:rgba(0,0,0,.55);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:7px;color:var(--accent-2)}
+  .imgwrap{position:relative;overflow:hidden;border-radius:var(--radius)}
+  .imgwrap img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* TESTIMONIALS */
+  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .test{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column}
+  .test .stars{color:var(--accent-2);letter-spacing:3px;margin-bottom:14px}
+  .test p{font-size:16px;line-height:1.6;margin-bottom:20px;color:var(--ink)}
+  .test .who{display:flex;align-items:center;gap:12px;margin-top:auto}
+  .test .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#6d4ad6);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+  .test .who b{font-size:14.5px}
+  .test .who span{font-size:13px;color:var(--muted)}
+
+  /* BEFORE / AFTER */
+  .ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:40px}
+  .ba{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+  .ba-vids{display:flex;gap:10px;margin-bottom:14px}
+  .ba-vid{flex:1;aspect-ratio:9/16;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(135deg,#241a23,#120e16);display:flex;align-items:flex-end;justify-content:center}
+  .ba-vid .lbl{position:absolute;top:8px;left:8px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:6px}
+  .ba-vid.before .lbl{background:rgba(255,255,255,.14);color:var(--muted)}
+  .ba-vid.after .lbl{background:var(--accent);color:#fff}
+  .ba-vid .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff}
+  .ba-vid .cap{position:relative;z-index:1;font-size:10px;color:var(--dim);padding:8px;text-align:center}
+  .ba h4{font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:-.01em;margin-bottom:4px}
+  .ba .who{font-size:12.5px;color:var(--dim);margin-bottom:8px}
+  .ba .res{font-size:13.5px;color:var(--accent-2);font-weight:600}
+
+  /* PRICING */
+  .price{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px;position:relative}
+  .pcard.feat{border-color:var(--accent)}
+  .pbadge{position:absolute;top:-13px;left:34px;background:var(--accent);color:#fff;font-size:12px;font-weight:700;padding:5px 14px;border-radius:100px}
+  .pcard .ptitle{font-family:var(--display);text-transform:uppercase;font-size:22px;margin-bottom:6px}
+  .pcard .pwho{font-size:13.5px;color:var(--muted);margin-bottom:20px}
+  .pprice{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  .pprice .now{font-family:var(--display);font-size:42px;color:var(--ink)}
+  .pprice .old{font-size:20px;color:var(--dim);text-decoration:line-through}
+  .pnote{font-size:12.5px;color:var(--dim);margin-bottom:22px}
+  .pcard ul{list-style:none;margin-bottom:24px}
+  .pcard li{font-size:14.5px;color:var(--muted);padding:7px 0 7px 26px;position:relative}
+  .pcard li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+  .guarantee{display:flex;align-items:center;gap:14px;max-width:900px;margin:24px auto 0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 22px}
+  .guarantee .gic{font-size:26px}
+  .guarantee p{font-size:14.5px;color:var(--muted)}
+  .guarantee b{color:var(--ink)}
+
+  /* TWO PATHS */
+  .paths-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .path{border:1px solid var(--line);border-radius:var(--radius);padding:32px;background:var(--card)}
+  .path.good{border-color:rgba(225,16,72,.5)}
+  .path .pe{font-size:30px;margin-bottom:12px}
+  .path h3{margin-bottom:12px}
+  .path p{color:var(--muted);font-size:15px;text-transform:none}
+
+  /* FAQ */
+  .faq{max-width:840px;margin:0 auto}
+  .qa{border-bottom:1px solid var(--line)}
+  .qa button{width:100%;background:none;border:none;color:var(--ink);font-family:var(--sans);font-size:17px;font-weight:600;text-align:left;padding:22px 40px 22px 0;cursor:pointer;position:relative}
+  .qa button::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:24px;color:var(--accent);transition:.2s}
+  .qa.open button::after{transform:translateY(-50%) rotate(45deg)}
+  .qa .ans{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:15px}
+  .qa.open .ans{max-height:240px}
+  .qa .ans p{padding:0 0 22px}
+
+  /* FINAL */
+  .final{text-align:center;padding:clamp(80px,12vw,150px) 0;position:relative;overflow:hidden}
+  .final::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(700px 380px at 50% 0%, rgba(225,16,72,.26), transparent 62%)}
+  .final .wrap{position:relative;z-index:1}
+  .final h2{max-width:16ch;margin:0 auto 8px}
+  .final .lead{max-width:54ch;margin:24px auto 34px}
+  .final-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:50px 0 40px;color:var(--dim);font-size:13.5px}
+  .foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:30px}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+  .foot-links a:hover{color:var(--ink)}
+  .legal{border-top:1px solid var(--line);padding-top:24px;line-height:1.7;color:var(--dim);font-size:12.5px}
+
+  .note{margin-top:14px;font-size:12.5px;color:var(--dim)}
+
+  @media(max-width:920px){
+    .hero-photo{left:0;opacity:.5}
+    .hero-fade{background:linear-gradient(0deg,var(--bg) 8%,rgba(10,10,11,.55) 60%,rgba(10,10,11,.35))}
+    .pain-grid{grid-template-columns:1fr}
+    .result-grid{grid-template-columns:1fr 1fr}
+    .fmt-grid,.prod-grid,.price-grid,.paths-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .about-grid{grid-template-columns:1fr;gap:30px}
+    .about-photo{max-width:420px}
+    .test-grid,.ba-grid{grid-template-columns:1fr}
+    .nav-links{display:none}
+    .burger{display:flex}
+    .nav-links.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;background:var(--bg-2);padding:18px 24px;border-bottom:1px solid var(--line);gap:16px}
+  }
+  @media(max-width:560px){
+    .result-grid,.steps,.prod,.teach{grid-template-columns:1fr}
+    .prod{grid-template-columns:1fr}
+    .cover{aspect-ratio:16/10;max-width:220px}
+    .facts{grid-template-columns:1fr}
+    .hero-cta .btn,.final-cta .btn{width:100%;justify-content:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- PROMO BAR -->
+<div class="promobar">🔥 Набор на новый поток открыт · старт <b>30 июня</b> · осталось <b>8 мест</b> · первое занятие бесплатное</div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo"><i></i>Maria&nbsp;from&nbsp;LA</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#pain">Зачем</a>
+      <a href="#levels">Уровни</a>
+      <a href="#products">Продукты</a>
+      <a href="#about">О Марии</a>
+      <a href="#price">Стоимость</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="#price" class="btn btn-primary btn-sm">Начать обучение</a>
+      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-photo">
+    <div class="ph-figure"></div>
+    <span class="ph-tag" style="position:absolute;top:18px;right:18px;">фото Марии · во весь экран</span>
+  </div>
+  <div class="hero-glow"></div>
+  <div class="hero-fade"></div>
+  <div class="hero-fade bottom"></div>
+  <div class="wrap hero-inner">
+    <span class="hero-tag">🇺🇸 Английский для жизни в США</span>
+    <h1>Заговори <span class="accent serif-accent">в реальной</span> Америке</h1>
+    <hr class="dash">
+    <p class="lead hero-sub">Понимай быструю американскую речь и говори уверенно — у врача, в банке, в школе ребёнка и на работе. Без переводчика и без перевода в голове.</p>
+    <div class="hero-cta">
+      <a href="#price" class="btn btn-primary">Подобрать программу →</a>
+      <a href="#products" class="btn btn-ghost">Смотреть продукты</a>
+    </div>
+    <p style="font-size:14.5px;color:var(--accent-2);font-weight:600;margin:-18px 0 24px">✨ Первое занятие бесплатное · старт потока 30 июня · осталось 8 мест</p>
+    <div class="qual">
+      <span class="q-label">Что вам ближе?</span>
+      <span class="chip" data-q>Живу в США</span>
+      <span class="chip" data-q>Переезжаю в США</span>
+      <span class="chip" data-q>Работаю с США</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="strip">
+  <div class="strip-track">
+    <span>звонок в страховую<span></span>приём у врача<span></span>school meeting<span></span>small talk с соседями<span></span>созвон с клиентом<span></span>собеседование<span></span>аренда жилья<span></span>банк и документы</span>
+    <span>звонок в страховую<span></span>приём у врача<span></span>school meeting<span></span>small talk с соседями<span></span>созвон с клиентом<span></span>собеседование<span></span>аренда жилья<span></span>банк и документы</span>
+  </div>
+</div>
+
+<!-- PAIN -->
+<section class="sec pain" id="pain">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Узнаёте себя?</span>
+      <h2>Живёте в США, но английский всё ещё мешает</h2>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card"><span class="qm">”</span><p class="pain-quote">«Sorry, what did you just say?» — и вы краснеете, потому что снова не разобрали.</p></div>
+      <div class="pain-card"><span class="qm">!</span><p>Просите <b>мужа или детей</b> позвонить в страховую, банк или клинику вместо вас.</p></div>
+      <div class="pain-card"><span class="qm">!</span><p>На <b>school meeting</b> или у врача киваете, хотя поняли половину.</p></div>
+      <div class="pain-card"><span class="qm">!</span><p>Зубрили грамматику годами, но в разговоре всё равно говорите <b>in russian style</b>.</p></div>
+      <div class="pain-card"><span class="qm">!</span><p>На созвоне с коллегами отвечаете <b>коротко</b> и избегаете сложных мыслей.</p></div>
+      <div class="pain-card"><span class="qm">!</span><p>Понимаете учебные записи, но <b>живую речь американцев</b> — с трудом.</p></div>
+    </div>
+    <p class="pain-foot">Дело не в том, что «вам не дано». <span class="accent">Просто английский учили отдельно от жизни.</span></p>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section class="sec" id="result">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Что изменится</span>
+      <h2>Вы начнёте <span class="accent">пользоваться</span> английским</h2>
+      <p class="lead">…а не вспоминать правила. После обучения вы сможете:</p>
+    </div>
+    <div class="result-grid">
+      <div class="rcard"><div class="ic">📞</div><p><b>Сами звонить</b> в клинику, банк и страховую — без помощи близких.</p></div>
+      <div class="rcard"><div class="ic">🎧</div><p><b>Понимать</b> быструю американскую речь, а не только учебные записи.</p></div>
+      <div class="rcard"><div class="ic">💬</div><p><b>Говорить</b> без долгого перевода в голове.</p></div>
+      <div class="rcard"><div class="ic">🎒</div><p><b>Решать вопросы</b> в школе ребёнка, у врача и в сервисах сами.</p></div>
+      <div class="rcard"><div class="ic">🤝</div><p><b>Увереннее работать</b> с клиентами и коллегами из США.</p></div>
+      <div class="rcard"><div class="ic">😌</div><p><b>Меньше бояться</b> ошибок, пауз и акцента.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEVELS -->
+<section class="sec" id="levels" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head center"><span class="eyebrow">Для кого</span><h2>Есть маршрут под ваш уровень</h2><p class="lead">Набор открыт на все уровни — от тех, кто только начинает говорить, до тех, кто хочет звучать как native.</p></div>
+    <div class="result-grid">
+      <div class="rcard"><div class="ic" style="background:rgba(225,16,72,.14);color:#fff;font-family:var(--display);font-size:15px">A1–A2</div><h3 style="margin-bottom:8px">Заговорить с нуля</h3><p>Наконец-то заговорить свободно в Америке, а не застревать на «I like cats».</p></div>
+      <div class="rcard"><div class="ic" style="background:rgba(109,74,214,.18);color:#fff;font-family:var(--display);font-size:15px">B1–B2</div><h3 style="margin-bottom:8px">Звучать естественно</h3><p>Уже говорите, но хотите понимать сленг и быстрое общение, как у американцев.</p></div>
+      <div class="rcard"><div class="ic" style="background:rgba(240,180,41,.18);color:#fff;font-family:var(--display);font-size:15px">B2–C1</div><h3 style="margin-bottom:8px">Звучать как native</h3><p>Свободно болтаете, но хотите звучать как носитель и понимать быстрые диалоги из фильмов и сериалов.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATS -->
+<section class="sec" id="formats">
+  <div class="wrap">
+    <div class="sec-head center"><span class="eyebrow">Выберите формат</span><h2>Два пути — один результат</h2></div>
+    <div class="fmt-grid">
+      <div class="fmt feat">
+        <span class="tag">Персональное обучение</span>
+        <h3>Маршрут под ваш уровень и задачи</h3>
+        <p>Разбираем именно те ситуации, где английский мешает жить и работать в США: звонки, встречи, клиенты, документы, small talk, школа ребёнка, переезд, собеседования.</p>
+        <a href="#price" class="btn btn-primary">Подобрать программу</a>
+      </div>
+      <div class="fmt">
+        <span class="tag" style="color:var(--accent-2)">Цифровые продукты</span>
+        <h3>Закрыть одну проблему самостоятельно</h3>
+        <p>Произношение, времена, английский для США или деловое общение. Готовая программа в удобном темпе и доступ к материалам в любое время.</p>
+        <a href="#products" class="btn btn-ghost">Выбрать продукт</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="sec" id="products">
+  <div class="wrap">
+    <div class="sec-head center"><span class="eyebrow">Цифровые продукты</span><h2>Освойте один навык без длинного курса</h2><p class="lead">Каждый продукт — понятный результат. Внутри: объяснения без воды, примеры живой речи, речевые модели и практика.</p></div>
+    <div class="prod-grid">
+      <div class="prod">
+        <div class="cover cover-a"><span class="cover-ic">🗣️</span><span class="cover-t"><span class="cover-k">Произношение</span>Говори как американец</span></div>
+        <div>
+          <h3>«Говори как американец»</h3>
+          <div class="who">Звучать понятнее и ловить быструю речь</div>
+          <p>Ритм, ударение, интонация, сокращения и соединение слов.</p>
+          <div class="res"><b>Результат:</b> не «стереть акцент», а говорить естественнее и понятнее.</div>
+          <a href="#price" class="btn btn-ghost btn-sm">Посмотреть программу</a>
+        </div>
+      </div>
+      <div class="prod">
+        <div class="cover cover-b"><span class="cover-ic">🇺🇸</span><span class="cover-t"><span class="cover-k">Жизнь в США</span>Английский для жизни в США</span></div>
+        <div>
+          <h3>«Английский для жизни в США»</h3>
+          <div class="who">Живёте в США или готовитесь к переезду</div>
+          <p>Врач, банк, страховка, школа, аренда, сервис, документы.</p>
+          <div class="res"><b>Результат:</b> самостоятельность и меньше зависимости от близких.</div>
+          <a href="#price" class="btn btn-ghost btn-sm">Узнать о продукте</a>
+        </div>
+      </div>
+      <div class="prod">
+        <div class="cover cover-c"><span class="cover-ic">💼</span><span class="cover-t"><span class="cover-k">Деловой</span>Business English USA</span></div>
+        <div>
+          <h3>«Business English USA»</h3>
+          <div class="who">Работаете с клиентами и коллегами из США</div>
+          <p>Звонки, встречи, переговоры, переписка, продажи, small talk.</p>
+          <div class="res"><b>Результат:</b> мысли яснее, звучите увереннее и компетентнее.</div>
+          <a href="#price" class="btn btn-ghost btn-sm">Посмотреть программу</a>
+        </div>
+      </div>
+      <div class="prod">
+        <div class="cover cover-d"><span class="cover-ic">⏱️</span><span class="cover-t"><span class="cover-k">Грамматика</span>Времена без воды</span></div>
+        <div>
+          <h3>«Времена без воды»</h3>
+          <div class="who">Учили времена, но всё равно тормозите</div>
+          <p>Система, логика и закрепление времён в живых фразах.</p>
+          <div class="res"><b>Результат:</b> выбираете время по смыслу, а не по таблице.</div>
+          <a href="#price" class="btn btn-ghost btn-sm">Разобраться</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="sec" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head center"><span class="eyebrow">Методика</span><h2>Сначала ситуация — потом слова и грамматика</h2></div>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>Задача</h3><p>Не «выучить английский», а позвонить врачу, пройти собеседование, ответить клиенту.</p><div class="res">Понятная цель</div></div>
+      <div class="step"><div class="n">02</div><h3>Живая речь</h3><p>Как американцы говорят на самом деле: сокращения, ударения, формулировки.</p><div class="res">Понимание на слух</div></div>
+      <div class="step"><div class="n">03</div><h3>Грамматика</h3><p>Берём только то, что помогает говорить. Без лишних правил.</p><div class="res">Без зубрёжки</div></div>
+      <div class="step"><div class="n">04</div><h3>Тренировка</h3><p>Реагировать без подготовки и не зависать после неожиданного вопроса.</p><div class="res">Быстрые ответы</div></div>
+      <div class="step"><div class="n">05</div><h3>В жизнь</h3><p>Новые фразы сразу связываются с вашими реальными разговорами.</p><div class="res">Работает завтра</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec about" id="about">
+  <div class="wrap about-grid">
+    <div class="imgwrap about-photo ph">
+      <div class="ph-fig"></div>
+      <span class="ph-tag">фото Марии</span>
+      <span class="ph-label"><b>Портрет Марии</b>на фоне LA / студийный кадр<br>формат 4:5</span>
+    </div>
+    <div>
+      <span class="eyebrow">О Марии</span>
+      <h2>Учитесь у того, кто живёт <span class="accent">внутри</span> среды</h2>
+      <p class="lead" style="margin:18px 0">«Я — Мари, преподаю английский 8 лет, живу и работаю в Калифорнии. Мои уроки — это максимум практики, разговоров и живого американского вайба». Помогаю русскоговорящим выйти из «русского пузыря» и заговорить в настоящей Америке.</p>
+      <div class="facts">
+        <div class="fact"><b>8 лет</b><span>преподаёт английский</span></div>
+        <div class="fact"><b>300+</b><span>учеников</span></div>
+        <div class="fact"><b>Калифорния</b><span>живёт в языковой среде</span></div>
+        <div class="fact"><b>1-й урок</b><span>бесплатный</span></div>
+      </div>
+      <div class="teach">
+        <div><h4 style="color:#3ecf8e">Чему учу</h4><ul class="yes"><li>Понимать живую речь США</li><li>Говорить в реальных ситуациях</li><li>Произношение и уверенность</li></ul></div>
+        <div><h4 style="color:var(--dim)">Чему не учу</h4><ul class="no"><li>Зубрить таблицы и правила</li><li>«Британский» академический стиль</li><li>Учить ради сертификата «в стол»</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec" id="cases">
+  <div class="wrap">
+    <div class="sec-head center"><span class="eyebrow">До / После</span><h2>Послушайте, как меняется речь</h2><p class="lead">Короткие видео учеников: как говорили до и как звучат после. Вставьте сюда реальные кружки/reels.</p></div>
+    <div class="ba-grid">
+      <div class="ba">
+        <div class="ba-vids">
+          <div class="ba-vid before"><span class="lbl">До</span><span class="play">▶</span><span class="cap">видео до</span></div>
+          <div class="ba-vid after"><span class="lbl">После</span><span class="play">▶</span><span class="cap">видео после</span></div>
+        </div>
+        <h4>Анна</h4>
+        <div class="who">Калифорния · персональное</div>
+        <div class="res">Сама решила вопрос со страховой по телефону</div>
+      </div>
+      <div class="ba">
+        <div class="ba-vids">
+          <div class="ba-vid before"><span class="lbl">До</span><span class="play">▶</span><span class="cap">видео до</span></div>
+          <div class="ba-vid after"><span class="lbl">После</span><span class="play">▶</span><span class="cap">видео после</span></div>
+        </div>
+        <h4>Илья</h4>
+        <div class="who">IT · Business English</div>
+        <div class="res">Ведёт созвоны с командой из США уверенно</div>
+      </div>
+      <div class="ba">
+        <div class="ba-vids">
+          <div class="ba-vid before"><span class="lbl">До</span><span class="play">▶</span><span class="cap">видео до</span></div>
+          <div class="ba-vid after"><span class="lbl">После</span><span class="play">▶</span><span class="cap">видео после</span></div>
+        </div>
+        <h4>Елена</h4>
+        <div class="who">Флорида · уровни</div>
+        <div class="res">Понимает быструю речь из фильмов и сериалов</div>
+      </div>
+    </div>
+    <div class="test-grid">
+      <div class="test"><div class="stars">★★★★★</div><p>«Боялась звонить в страховую и просила мужа. После занятий впервые решила вопрос сама».</p><div class="who"><div class="av">А</div><div><b>Анна</b><span>Калифорния</span></div></div></div>
+      <div class="test"><div class="stars">★★★★★</div><p>«На созвонах отвечал коротко и избегал сложного. Теперь увереннее участвую во встречах с командой из США».</p><div class="who"><div class="av">И</div><div><b>Илья</b><span>IT</span></div></div></div>
+      <div class="test"><div class="stars">★★★★★</div><p>«Несколько раз учила времена, но путалась. После интенсива выбираю конструкции по смыслу».</p><div class="who"><div class="av">Е</div><div><b>Елена</b><span>Флорида</span></div></div></div>
+    </div>
+    <p class="note" style="text-align:center">Замените на реальные отзывы — лучше всего работают видео До/После и скриншоты переписок.</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec price" id="price">
+  <div class="wrap">
+    <div class="sec-head center"><span class="eyebrow">Стоимость</span><h2>Выберите, с чего начать</h2></div>
+    <div class="price-grid">
+      <div class="pcard feat">
+        <span class="pbadge">Популярное</span>
+        <div class="ptitle">Персональное обучение</div>
+        <div class="pwho">Маршрут под ваш уровень, график и задачи</div>
+        <div class="pprice"><span class="now">— ₽</span><span class="old">— ₽</span></div>
+        <p class="pnote">за занятие · впишите вашу цену</p>
+        <ul>
+          <li>Индивидуальный план под ваши ситуации в США</li>
+          <li>Разбор живой речи и произношения</li>
+          <li>Поддержка и домашние задания между уроками</li>
+          <li>Гибкий график, онлайн из любой точки</li>
+        </ul>
+        <a href="#start" class="btn btn-primary btn-block">Записаться на бесплатный урок</a>
+        <p class="pnote" style="text-align:center;margin:10px 0 0;color:var(--accent)">🔥 Осталось 8 мест в потоке · старт 30 июня</p>
+      </div>
+      <div class="pcard">
+        <div class="ptitle">Цифровые продукты</div>
+        <div class="pwho">Самостоятельно закрыть одну тему</div>
+        <div class="pprice"><span class="now">— ₽</span><span class="old">— ₽</span></div>
+        <p class="pnote">за продукт · впишите вашу цену</p>
+        <ul>
+          <li>Видеоуроки без воды + речевые модели</li>
+          <li>Практические задания и примеры из жизни США</li>
+          <li>Доступ к материалам в удобном темпе</li>
+          <li>Оплата картой и рассрочка (настроить)</li>
+        </ul>
+        <a href="#products" class="btn btn-ghost btn-block">Выбрать продукт</a>
+      </div>
+    </div>
+    <div class="guarantee">
+      <span class="gic">🛡️</span>
+      <p><b>Первое занятие — бесплатное.</b> Определим, что мешает говорить, и составим маршрут. А для цифровых продуктов действует <b>гарантия возврата</b>, если не подойдёт.</p>
+    </div>
+    <p class="note" style="text-align:center">Цены и условия гарантии — подставьте свои реальные значения.</p>
+  </div>
+</section>
+
+<!-- TWO PATHS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head center"><span class="eyebrow">Перед тем как закрыть страницу</span><h2>У вас есть два пути</h2></div>
+    <div class="paths-grid">
+      <div class="path"><div class="pe">😕</div><h3>Оставить как есть</h3><p>Продолжать переспрашивать, просить близких звонить за вас и кивать там, где не поняли. Английский так и останется барьером между вами и жизнью в США.</p></div>
+      <div class="path good"><div class="pe">😎</div><h3>Начать говорить</h3><p>Разобрать свои реальные ситуации, понять живую речь и перестать бояться разговоров. Через несколько недель вы решаете вопросы в США сами.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head center"><span class="eyebrow">FAQ</span><h2>Частые вопросы</h2></div>
+    <div class="faq">
+      <div class="qa"><button>Какой уровень английского нужен, чтобы начать?</button><div class="ans"><p>Любой — от A1 до C1. На бесплатном первом занятии Мария определит ваш уровень и подберёт маршрут.</p></div></div>
+      <div class="qa"><button>Я живу не в США. Мне подойдёт?</button><div class="ans"><p>Да. Обучение онлайн из любой точки мира. Программа особенно полезна тем, кто живёт в США или готовится к переезду.</p></div></div>
+      <div class="qa"><button>Сколько времени нужно уделять?</button><div class="ans"><p>Достаточно регулярной практики между занятиями. Точную нагрузку подберём под ваш график на старте.</p></div></div>
+      <div class="qa"><button>Чем это отличается от обычных курсов?</button><div class="ans"><p>Мы начинаем не с главы учебника, а с ваших реальных ситуаций в США. Меньше теории — больше живой речи, разговоров и американского вайба.</p></div></div>
+      <div class="qa"><button>Как оплатить и есть ли рассрочка?</button><div class="ans"><p>Оплата картой; рассрочку и условия для иностранных карт настроим на странице оплаты. (Заполните реальные способы оплаты.)</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="sec final" id="start">
+  <div class="wrap">
+    <span class="eyebrow">Пора начать</span>
+    <h2>Перестаньте откладывать английский для США</h2>
+    <p class="lead">Выберите задачу, которая мешает вам сейчас — звонки, работа, произношение, времена или жизнь в США. Первое занятие — бесплатное.</p>
+    <div class="final-cta">
+      <a href="#price" class="btn btn-primary">Записаться на бесплатный урок →</a>
+      <a href="#products" class="btn btn-ghost">Смотреть продукты</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="logo"><i></i>Maria from LA</div>
+      <div class="foot-links">
+        <a href="#result">Результат</a>
+        <a href="#levels">Уровни</a>
+        <a href="#products">Продукты</a>
+        <a href="#about">О Марии</a>
+        <a href="#price">Стоимость</a>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="legal">
+      © 2026 Maria from LA · Английский для жизни в США. &nbsp;|&nbsp; Контакт: впишите email · Telegram · WhatsApp.<br>
+      Для продаж в РФ добавьте: ИП / самозанятость, ИНН, реквизиты, публичную оферту и политику конфиденциальности.
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger=document.getElementById('burger'), links=document.getElementById('navLinks');
+  burger.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+
+  document.querySelectorAll('[data-q]').forEach(c=>c.addEventListener('click',()=>{
+    document.querySelectorAll('[data-q]').forEach(x=>x.classList.remove('on'));
+    c.classList.add('on');
+  }));
+
+  document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()=>{
+    const qa=b.parentElement;
+    document.querySelectorAll('.qa').forEach(x=>{if(x!==qa)x.classList.remove('open')});
+    qa.classList.toggle('open');
+  }));
+
+  const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='none';obs.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rcard,.fmt,.prod,.step,.test,.ba,.pain-card,.pcard,.path').forEach((el,i)=>{
+    el.style.opacity=0;el.style.transform='translateY(18px)';
+    el.style.transition='opacity .5s ease '+((i%6)*.05)+'s, transform .5s ease '+((i%6)*.05)+'s';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
