@@ -82,9 +82,9 @@
   .hero-tag{display:inline-block;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);background:rgba(255,255,255,.08);border:1px solid var(--line);padding:7px 14px;border-radius:100px;margin-bottom:26px}
   .hero-sub{max-width:48ch;margin:10px 0 30px}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
-  .qual{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .qual{display:flex;align-items:center;gap:10px;flex-wrap:wrap;row-gap:10px;max-width:560px}
   .qual .q-label{font-size:13px;color:var(--dim);margin-right:4px}
-  .chip{font-size:13.5px;color:var(--ink);background:var(--bg-3);border:1px solid var(--line);padding:9px 16px;border-radius:100px;cursor:pointer;transition:.14s}
+  .chip{font-size:13.5px;color:var(--ink);background:var(--bg-3);border:1px solid var(--line);padding:9px 16px;border-radius:100px;cursor:pointer;transition:.14s;white-space:nowrap}
   .chip:hover,.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
 
   /* MARQUEE */
@@ -297,6 +297,8 @@ h1{font-size:clamp(34px,10.5vw,46px)}
 .pain-card{padding:18px 18px}
 .guarantee{flex-direction:column;text-align:center;gap:10px}
 .about-grid{gap:24px}
+.qual{gap:8px}
+.qual .q-label{width:100%;margin:0 0 2px}
 }
 </style>
 </head>
