@@ -87,6 +87,9 @@
   .chip{font-size:13.5px;color:var(--ink);background:var(--bg-3);border:1px solid var(--line);padding:9px 16px;border-radius:100px;cursor:pointer;transition:.14s;white-space:nowrap}
   .chip:hover,.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
 
+  .hero-photo img{animation:kenburns 20s ease-in-out infinite alternate;transform-origin:60% 40%}
+  @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.09)}}
+
   /* MARQUEE */
   .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);overflow:hidden}
   .strip-track{display:flex;gap:42px;white-space:nowrap;padding:15px 0;width:max-content;animation:scroll 30s linear infinite}
@@ -330,7 +333,7 @@ h1{font-size:clamp(34px,10.5vw,46px)}
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-photo">
-    <img src="https://picsum.photos/seed/mariahero/1100/1320" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92">
+    <img src="https://loremflickr.com/1100/1320/statue-of-liberty?lock=31" alt="" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mariahero/1100/1320'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92">
     <span class="ph-tag" style="position:absolute;top:18px;right:18px;">рандом-превью</span>
   </div>
   <div class="hero-glow"></div>
@@ -501,7 +504,7 @@ h1{font-size:clamp(34px,10.5vw,46px)}
 <section class="sec about" id="about">
   <div class="wrap about-grid">
     <div class="imgwrap about-photo">
-      <img src="https://picsum.photos/seed/mariaabout/900/1120" alt="" style="width:100%;height:100%;object-fit:cover">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1024px-Flag_of_the_United_States.svg.png" alt="Флаг США" onerror="this.onerror=null;this.src='https://loremflickr.com/900/1120/usa,patriotic?lock=22'" style="width:100%;height:100%;object-fit:cover">
       <span class="ph-tag">рандом-превью</span>
     </div>
     <div>
