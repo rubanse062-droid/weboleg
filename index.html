@@ -195,12 +195,14 @@
   .ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:40px}
   .ba{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
   .ba-vids{display:flex;gap:10px;margin-bottom:14px}
-  .ba-vid{flex:1;aspect-ratio:9/16;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(135deg,#241a23,#120e16);display:flex;align-items:flex-end;justify-content:center}
+  .ba-vid{flex:1;aspect-ratio:3/4;border-radius:10px;position:relative;overflow:hidden;background:linear-gradient(135deg,#241a23,#120e16);display:flex;align-items:flex-end;justify-content:center}
   .ba-vid .lbl{position:absolute;top:8px;left:8px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:6px}
   .ba-vid.before .lbl{background:rgba(255,255,255,.14);color:var(--muted)}
   .ba-vid.after .lbl{background:var(--accent);color:#fff}
   .ba-vid .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff}
   .ba-vid .cap{position:relative;z-index:1;font-size:10px;color:var(--dim);padding:8px;text-align:center}
+  .ba-vid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(.72)}
+  .ba-vid .lbl,.ba-vid .play{z-index:2}
   .ba h4{font-family:var(--display);font-size:16px;font-weight:700;letter-spacing:-.01em;margin-bottom:4px}
   .ba .who{font-size:12.5px;color:var(--dim);margin-bottom:8px}
   .ba .res{font-size:13.5px;color:var(--accent-2);font-weight:600}
@@ -533,37 +535,28 @@ h1{font-size:clamp(34px,10.5vw,46px)}
     <div class="sec-head center"><span class="eyebrow">До / После</span><h2>Послушайте, как меняется речь</h2><p class="lead">Короткие видео учеников: как говорили до и как звучат после. Вставьте сюда реальные кружки/reels.</p></div>
     <div class="ba-grid">
       <div class="ba">
-        <div class="ba-vids">
-          <div class="ba-vid before"><span class="lbl">До</span><span class="play">▶</span><span class="cap">видео до</span></div>
-          <div class="ba-vid after"><span class="lbl">После</span><span class="play">▶</span><span class="cap">видео после</span></div>
-        </div>
+        <div class="ba-vids"><div class="ba-vid before"><img src="https://picsum.photos/seed/anna_b/300/400?grayscale" alt=""><span class="lbl">До</span><span class="play">▶</span></div><div class="ba-vid after"><img src="https://picsum.photos/seed/anna_a/300/400?grayscale" alt=""><span class="lbl">После</span><span class="play">▶</span></div></div>
         <h4>Анна</h4>
-        <div class="who">Калифорния · персональное</div>
+        <div class="who">Персональное обучение</div>
         <div class="res">Сама решила вопрос со страховой по телефону</div>
       </div>
       <div class="ba">
-        <div class="ba-vids">
-          <div class="ba-vid before"><span class="lbl">До</span><span class="play">▶</span><span class="cap">видео до</span></div>
-          <div class="ba-vid after"><span class="lbl">После</span><span class="play">▶</span><span class="cap">видео после</span></div>
-        </div>
+        <div class="ba-vids"><div class="ba-vid before"><img src="https://picsum.photos/seed/ilya_b/300/400?grayscale" alt=""><span class="lbl">До</span><span class="play">▶</span></div><div class="ba-vid after"><img src="https://picsum.photos/seed/ilya_a/300/400?grayscale" alt=""><span class="lbl">После</span><span class="play">▶</span></div></div>
         <h4>Илья</h4>
-        <div class="who">IT · Business English</div>
+        <div class="who">Business English</div>
         <div class="res">Ведёт созвоны с командой из США уверенно</div>
       </div>
       <div class="ba">
-        <div class="ba-vids">
-          <div class="ba-vid before"><span class="lbl">До</span><span class="play">▶</span><span class="cap">видео до</span></div>
-          <div class="ba-vid after"><span class="lbl">После</span><span class="play">▶</span><span class="cap">видео после</span></div>
-        </div>
+        <div class="ba-vids"><div class="ba-vid before"><img src="https://picsum.photos/seed/elena_b/300/400?grayscale" alt=""><span class="lbl">До</span><span class="play">▶</span></div><div class="ba-vid after"><img src="https://picsum.photos/seed/elena_a/300/400?grayscale" alt=""><span class="lbl">После</span><span class="play">▶</span></div></div>
         <h4>Елена</h4>
-        <div class="who">Флорида · уровни</div>
+        <div class="who">Разговорный английский</div>
         <div class="res">Понимает быструю речь из фильмов и сериалов</div>
       </div>
     </div>
     <div class="test-grid">
-      <div class="test"><div class="stars">★★★★★</div><p>«Боялась звонить в страховую и просила мужа. После занятий впервые решила вопрос сама».</p><div class="who"><div class="av">А</div><div><b>Анна</b><span>Калифорния</span></div></div></div>
-      <div class="test"><div class="stars">★★★★★</div><p>«На созвонах отвечал коротко и избегал сложного. Теперь увереннее участвую во встречах с командой из США».</p><div class="who"><div class="av">И</div><div><b>Илья</b><span>IT</span></div></div></div>
-      <div class="test"><div class="stars">★★★★★</div><p>«Несколько раз учила времена, но путалась. После интенсива выбираю конструкции по смыслу».</p><div class="who"><div class="av">Е</div><div><b>Елена</b><span>Флорида</span></div></div></div>
+      <div class="test"><div class="stars">★★★★★</div><p>«Боялась звонить в страховую и просила мужа. После занятий впервые решила вопрос сама».</p><div class="who"><div class="av">А</div><div><b>Анна</b></div></div></div>
+      <div class="test"><div class="stars">★★★★★</div><p>«На созвонах отвечал коротко и избегал сложного. Теперь увереннее участвую во встречах с командой из США».</p><div class="who"><div class="av">И</div><div><b>Илья</b></div></div></div>
+      <div class="test"><div class="stars">★★★★★</div><p>«Несколько раз учила времена, но путалась. После интенсива выбираю конструкции по смыслу».</p><div class="who"><div class="av">Е</div><div><b>Елена</b></div></div></div>
     </div>
     <p class="note" style="text-align:center">Замените на реальные отзывы — лучше всего работают видео До/После и скриншоты переписок.</p>
   </div>
