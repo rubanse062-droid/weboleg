@@ -707,11 +707,12 @@ a.store:hover { border-color: var(--accent); color: var(--accent); }
   .gallery__grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; }
   .article { grid-template-columns: 1fr; }
   
-  .team__row { overflow-x: auto; scroll-snap-type: x mandatory; gap: 4px; padding: 20px 6px 30px; justify-content: flex-start; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
-  .portrait { flex: 0 0 46%; scroll-snap-align: center; }
-  .portrait img { max-height: 300px; }
-  .portrait[aria-selected="true"] { transform: translateY(-8px) scale(1.03); }
-  .team__ground { height: 70px; bottom: 26px; }
+  .team__row { overflow-x: auto; scroll-snap-type: x proximity; gap: 10px; padding: 14px 6px 34px; justify-content: flex-start; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+  .portrait { flex: 0 0 26%; scroll-snap-align: center; }
+  .portrait img { width: 100%; max-height: none; transform: none; }
+  .portrait[aria-selected="true"], .portrait[data-selected="true"] { transform: translateY(-6px) scale(1.05); }
+  .portrait__name { font-size: .82rem; bottom: -24px; padding: 2px 10px 1px; }
+  .team__ground { height: 46px; bottom: 24px; }
   .team__ground--accent { display: none; }
 }
 @media (max-width: 600px) {
@@ -761,9 +762,10 @@ a.store:hover { border-color: var(--accent); color: var(--accent); }
   .hours-row__bar { font-size: .78rem; padding: 0 6px; }
   .interior__grid { grid-template-columns: 1fr; }
   .interior__grid figure:first-child { grid-column: auto; }
-  .fab { width: 92px; height: 92px; font-size: .68rem; right: 14px; bottom: 14px; }
   .to-top { left: 14px; bottom: 14px; width: 46px; height: 46px; }
-  .portrait { flex: 0 0 64%; }
+  .portrait { flex: 0 0 31%; }
+  .team__tabs { gap: 8px; }
+  .tab-btn { min-height: 44px; padding: 8px 14px; font-size: .78rem; }
   .team__panel h3 { font-size: 2rem; }
   .compare { aspect-ratio: 3 / 4; }
   .review::before { font-size: 6rem; top: -24px; }
@@ -781,6 +783,9 @@ a.store:hover { border-color: var(--accent); color: var(--accent); }
   .interior__grid figcaption, .checklist small, .phone__step small, .team__note,
   .review cite small, .footer__bottom, .muted, .values__list p, .hours-list,
   .contact-box .muted, .ba__caption, .score__note, .store small { font-size: max(13px, 0.86rem); }
+}
+
+@media (min-width: 601px) and (pointer: coarse) {
   .fab { width: 108px; height: 108px; font-size: .78rem; }
 }
 
