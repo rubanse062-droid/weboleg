@@ -101,3 +101,8 @@ body:has(#lightbox[open]){overflow:hidden}
 :root{--bottom-bar-height:0px}.header{position:sticky;min-height:60px;padding-top:4px;padding-bottom:4px}.brand img{width:50px;height:50px}.brand{flex-basis:50px}.header nav{max-height:calc(100dvh - var(--header-height,60px) - env(safe-area-inset-bottom))}.mobile-book{display:none}body{padding-bottom:0}
 #lightbox{padding:44px 12px 10px}#lightbox>img{max-height:calc(100dvh - 110px)}#lightbox>p{margin-top:8px;font-size:12px}
 }
+
+/* Gift voucher artwork, with the full card visible at every screen size. */
+.voucher-detail{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:6%;max-width:1240px;padding-top:20px}
+.voucher-detail>img{display:block;width:100%;height:auto;border:1px solid #ffffff24}
+@media(max-width:850px){.voucher-detail{grid-template-columns:minmax(0,1fr);gap:32px;text-align:center}.voucher-detail>img{width:100%;max-width:720px;justify-self:center}.voucher-detail .button-row{justify-content:center}}
