@@ -3,6 +3,12 @@ const nav=document.querySelector('#navigation'),toggle=document.querySelector('.
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 const pages=window.restaurantPages||{};
 let cleanup=()=>{},previousFocus;
+function updateHeaderSize(){document.documentElement.style.setProperty('--header-height',header.getBoundingClientRect().height+'px');}
+updateHeaderSize();
+if('ResizeObserver' in window)new ResizeObserver(updateHeaderSize).observe(header);
+else window.addEventListener('resize',updateHeaderSize,{passive:true});
+document.addEventListener('click',e=>{if(nav.classList.contains('open')&&!header.contains(e.target))closeNavigation();});
+document.addEventListener('focusin',e=>{if(nav.classList.contains('open')&&!header.contains(e.target))closeNavigation();});
 function closeNavigation(){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation');nav.classList.remove('open');}
 toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');nav.classList.toggle('open',open);});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){closeNavigation();toggle.focus();}});
@@ -20,7 +26,7 @@ const films=Array.from(document.querySelectorAll('video'));
 films.forEach(film=>{const container=film.closest('.film');const control=container.querySelector('.film-toggle');let paused=false,visible=false;
 function sync(){control.textContent=film.paused?'▶ PLAY FILM':'Ⅱ PAUSE FILM';control.setAttribute('aria-label',film.paused?'Play restaurant film':'Pause restaurant film');}
 async function play(){try{await film.play();}catch{}if(!abort.signal.aborted)sync();}
-function auto(){if(visible&&!document.hidden&&!paused&&!reduced.matches&&!navigator.connection?.saveData)play();else film.pause();}
+function auto(){if(visible&&!document.hidden&&!paused&&!reduced.matches&&!navigator.connection?.saveData&&!/^(slow-)?2g$/.test(navigator.connection?.effectiveType||''))play();else film.pause();}
 control.addEventListener('click',()=>{if(film.paused){paused=false;play();}else{paused=true;film.pause();}},opts);
 film.addEventListener('play',sync,opts);film.addEventListener('pause',sync,opts);
 if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;auto();},{threshold:.15});observer.observe(film);observers.push(observer);}
