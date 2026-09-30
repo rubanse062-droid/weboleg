@@ -144,3 +144,47 @@ footer a:focus-visible{outline-color:#F7F4ED}
 
 .concept-note{color:var(--muted);border-color:var(--line)}
 .voucher-detail>img{border-color:var(--line)}
+
+/* Mobile welcome, approved Maiolica Blu palette. Desktop layout preserved. */
+.mobile-wordmark,.mobile-welcome,.mobile-home-title,.mobile-home-copy,.mobile-home-signature,.mobile-action-dock{display:none}
+@media(max-width:700px){
+ :root{--bottom-bar-height:86px}
+ body{padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+ .header{min-height:94px;padding:12px 18px;gap:12px;border-bottom:1px solid #ffffff25}
+ .header .brand{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+ .header .brand img{width:62px;height:62px;flex:0 0 62px}
+ .mobile-wordmark{display:flex;flex-direction:column;gap:5px;color:#FFFDF7}
+ .mobile-wordmark strong{font:500 15px/1.15 Poppins,Arial,sans-serif;letter-spacing:.4px;white-space:nowrap}
+ .mobile-wordmark small{font:400 8px/1.3 Poppins,Arial,sans-serif;letter-spacing:1px;white-space:nowrap}
+ .header .header-book,.header .header-voucher,.header .header-utility{display:none}
+ .header .nav-toggle{width:44px;flex:0 0 44px;height:50px;min-height:50px;position:relative;padding-bottom:15px;gap:6px;border:0;background:transparent;color:#FFFDF7}
+ .header .nav-toggle span{width:24px;height:1px}
+ .header .nav-toggle::after{content:'MENU';position:absolute;bottom:3px;font:400 8px/1 Poppins,Arial,sans-serif;letter-spacing:1px}
+ .header .nav-toggle[aria-expanded='true']::after{content:'CLOSE'}
+ .header .nav-toggle[aria-expanded='true'] span:first-child{transform:translateY(3.5px) rotate(45deg)}
+ .header .nav-toggle[aria-expanded='true'] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+ .header nav.open{padding:18px 24px 25px;background:#234F78;box-shadow:0 20px 28px #102a3525}
+ .header nav>a{font-size:18px;min-height:48px}
+ .mobile-home-intro{padding:25px 22px 23px;text-align:center;background:#FBF8F1}
+ .mobile-home-intro .desktop-home-title,.mobile-home-intro .desktop-home-copy{display:none}
+ .mobile-welcome{display:block;margin:0 0 10px;font:400 14px/1.3 Poppins,Arial,sans-serif;color:#42617B}
+ .mobile-home-intro h1{font:500 clamp(28px,8.3vw,36px)/1.14 Poppins,Arial,sans-serif;letter-spacing:-.9px;color:#203F5C}
+ .mobile-home-title{display:block}.mobile-home-title em{font-weight:500;font-style:normal}
+ .mobile-home-intro .mobile-home-copy{display:block;margin:14px auto 0;font:400 13px/1.7 Poppins,Arial,sans-serif;letter-spacing:0;color:#425B70}
+ .mobile-home-signature{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:18px;font:500 8px/1.2 Poppins,Arial,sans-serif;letter-spacing:2px;color:#526777}
+ .mobile-home-signature span{height:1px;width:35px;background:#B99B68}
+ .mobile-action-dock{display:grid;grid-template-columns:1fr 1.2fr;gap:5px;position:fixed;z-index:35;left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));bottom:calc(10px + env(safe-area-inset-bottom));background:#FBF8F1;border:1px solid #234f7840;border-radius:14px;padding:6px;box-shadow:0 5px 24px #102a3533}
+ .mobile-action-dock a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font:500 12px/1.2 Poppins,Arial,sans-serif;border-radius:9px}
+ .dock-menu{color:#234F78}.dock-menu svg{width:19px;height:19px}
+ .mobile-action-dock .dock-reserve{background:#234F78;color:#FFFDF7}
+ .dock-reserve span{font:400 20px/1 Poppins,Arial,sans-serif;margin-left:6px}
+ .dock-menu:hover{background:#E7EAF0}.mobile-action-dock .dock-reserve:hover{background:#173B4D}
+ .header nav{max-height:calc(100dvh - var(--header-height,94px) - 90px - env(safe-area-inset-bottom))}
+ body:has(#lightbox[open]) .mobile-action-dock{visibility:hidden}
+}
+@media(max-width:359px){
+ .header{padding:10px 12px;gap:6px}.header .brand{gap:9px}.header .brand img{width:52px;height:52px;flex-basis:52px}
+ .mobile-wordmark strong{font-size:13px;letter-spacing:.3px}.mobile-wordmark small{font-size:7px;letter-spacing:.5px}
+ .mobile-home-intro{padding:22px 14px}.mobile-home-intro h1{font-size:28px}
+}
+@media(max-height:500px) and (orientation:landscape){.mobile-action-dock{display:none}body{padding-bottom:0}}
