@@ -107,3 +107,40 @@ body:has(#lightbox[open]){overflow:hidden}
 .voucher-detail{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:6%;max-width:1240px;padding-top:20px}
 .voucher-detail>img{display:block;width:100%;height:auto;border:1px solid #ffffff24}
 @media(max-width:850px){.voucher-detail{grid-template-columns:minmax(0,1fr);gap:32px;text-align:center}.voucher-detail>img{width:100%;max-width:720px;justify-self:center}.voucher-detail .button-row{justify-content:center}}
+
+/* Maiolica Blu: selected production palette. */
+:root{--header:#234F78;--headerText:#FFFDF7;--canvas:#FBF8F1;--ink:#203F5C;--muted:#596773;--accent:#234F78;--buttonText:#FFFFFF;}
+:root{--red:var(--accent);--black:var(--canvas);--white:var(--ink);--line:color-mix(in srgb,var(--ink) 24%,transparent)}
+body{background:var(--canvas);color:var(--ink)}
+.header,.header nav,.mobile-book{background:var(--header);color:var(--headerText)}
+.header .brand img{background:#173B4D;border-radius:50%}
+.header .header-book,.header .header-voucher{color:var(--headerText);border-color:var(--headerText)}
+.header .header-book{background:var(--headerText);color:var(--header)}
+.header .header-book:hover{background:var(--header);color:var(--headerText)}
+.header .header-voucher:hover{background:var(--headerText);color:var(--header)}
+.header nav>a:hover,.header nav>a[aria-current]{border-bottom-color:var(--headerText)}
+.header .instagram-link,.header .instagram-link:hover,.nav-toggle{color:var(--headerText)}
+.nav-toggle span{background:currentColor}
+.header nav{border-top-color:color-mix(in srgb,var(--headerText) 22%,transparent)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline-color:var(--accent)}
+.header a:focus-visible,.header button:focus-visible,.mobile-book:focus-visible{outline-color:var(--headerText)}
+.button{border-color:var(--accent);color:var(--accent)}
+.button:hover,.button:focus-visible{background:var(--accent);color:var(--buttonText)}
+.text-link{border-color:var(--accent)}
+.menu-scene,.voucher-band{color:#FFFDF7;border-top-color:var(--header)}
+.menu-scene .button,.voucher-band .button{color:#FFFDF7;border-color:#FFFDF7}
+.menu-scene .button:hover,.menu-scene .button:focus-visible,.voucher-band .button:hover,.voucher-band .button:focus-visible{background:#FFFDF7;color:#173B4D}
+.menu-scene a:focus-visible,.voucher-band a:focus-visible{outline-color:#FFFDF7}
+.wave path[fill="#050505"]{fill:var(--canvas)}
+.wave path[stroke]{stroke:var(--canvas)}
+.film-toggle{background:var(--canvas);color:var(--ink);border-color:var(--ink)}
+.film-toggle:hover{background:var(--accent);color:var(--buttonText)}
+.video-error{color:#FFFDF7}
+footer{background:#173B4D;color:#F7F4ED;--muted:#D6E0E5;--line:#ffffff35}
+footer .button{border-color:#F7F4ED;color:#F7F4ED}
+footer .button:hover{background:#F7F4ED;color:#173B4D}
+footer a:focus-visible{outline-color:#F7F4ED}
+.mobile-book{border-top-color:var(--headerText)}
+
+.concept-note{color:var(--muted);border-color:var(--line)}
+.voucher-detail>img{border-color:var(--line)}
