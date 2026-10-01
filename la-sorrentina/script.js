@@ -20,6 +20,9 @@ lightbox.querySelector('.lightbox-close').addEventListener('click',()=>lightbox.
 lightbox.addEventListener('close',()=>previousFocus?.isConnected&&previousFocus.focus());
 lightbox.addEventListener('click',e=>{if(e.target===lightbox){const r=lightbox.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)lightbox.close();}});
 function mount(){
+// On the pickup page, the fixed action continues to checkout instead of linking to itself.
+const orderDock=document.querySelector('.dock-order'),pickupOrder=document.querySelector('.pickup-order');
+if(orderDock)orderDock.href=pickupOrder?pickupOrder.href:'/delivery.html';
 const abort=new AbortController(),observers=[];const opts={signal:abort.signal};
 if('IntersectionObserver'in window){const reveal=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');reveal.unobserve(e.target);}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>reveal.observe(el));observers.push(reveal);}
 const films=Array.from(document.querySelectorAll('video'));

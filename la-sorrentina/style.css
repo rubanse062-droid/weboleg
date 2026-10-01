@@ -176,9 +176,9 @@ footer a:focus-visible{outline-color:#F7F4ED}
  .mobile-action-dock{display:grid;grid-template-columns:1fr 1.2fr;gap:5px;position:fixed;z-index:35;left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));bottom:calc(10px + env(safe-area-inset-bottom));background:#FBF8F1;border:1px solid #234f7840;border-radius:14px;padding:6px;box-shadow:0 5px 24px #102a3533}
  .mobile-action-dock a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font:500 12px/1.2 Poppins,Arial,sans-serif;border-radius:9px}
  .dock-menu{color:#234F78}.dock-menu svg{width:19px;height:19px}
- .mobile-action-dock .dock-reserve{background:#234F78;color:#FFFDF7}
- .dock-reserve span{font:400 20px/1 Poppins,Arial,sans-serif;margin-left:6px}
- .dock-menu:hover{background:#E7EAF0}.mobile-action-dock .dock-reserve:hover{background:#173B4D}
+ .mobile-action-dock .dock-order{background:#234F78;color:#FFFDF7}
+ .dock-order span{font:400 20px/1 Poppins,Arial,sans-serif;margin-left:6px}
+ .dock-menu:hover{background:#E7EAF0}.mobile-action-dock .dock-order:hover{background:#173B4D}
  .header nav{max-height:calc(100dvh - var(--header-height,94px) - 90px - env(safe-area-inset-bottom))}
  body:has(#lightbox[open]) .mobile-action-dock{visibility:hidden}
 }
@@ -188,3 +188,50 @@ footer a:focus-visible{outline-color:#F7F4ED}
  .mobile-home-intro{padding:22px 14px}.mobile-home-intro h1{font-size:28px}
 }
 @media(max-height:500px) and (orientation:landscape){.mobile-action-dock{display:none}body{padding-bottom:0}}
+
+/* Pickup ordering: live availability and checkout belong to the restaurant's Toast page. */
+.pickup-hero{max-width:1240px;margin:0 auto;padding:58px 28px 48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.pickup-copy,.pickup-photo{min-width:0}
+.pickup-eyebrow{margin:0 0 16px;font-size:11px;font-weight:500;letter-spacing:2px;color:var(--muted)}
+.pickup-copy h1{font-size:clamp(32px,3.2vw,46px);line-height:1.17}
+.pickup-lead{font-size:16px;line-height:1.7;max-width:470px;color:var(--muted);margin-top:20px}
+.pickup-time-note{display:flex;gap:13px;align-items:flex-start;margin:25px 0 23px;padding:18px;background:#EAF0F3;border-radius:6px}
+.pickup-time-note>svg{width:24px;height:24px;flex:0 0 24px;color:var(--accent)}
+.pickup-time-note h2{font-size:15px;line-height:1.4;letter-spacing:0}
+.pickup-time-note p{margin:6px 0 0;font-size:13px;line-height:1.65;color:#425B70}
+.pickup-order{display:inline-flex;align-items:center;justify-content:center;gap:28px;min-height:52px;padding:13px 26px;background:var(--accent);color:var(--buttonText);border-radius:4px;font-size:14px;font-weight:500;letter-spacing:0}
+.pickup-order:hover,.pickup-order:focus-visible{background:#173B4D;color:#FFFDF7}
+.pickup-order span{font-size:20px;line-height:1}
+.pickup-availability{max-width:430px;margin-top:12px;font-size:12px;line-height:1.7;color:var(--muted)}
+.pickup-availability a{text-decoration:underline;text-underline-offset:3px}
+.pickup-photo img{display:block;width:100%;height:auto;border-radius:5px}
+.pickup-photo figcaption{margin-top:14px;font-size:9px;letter-spacing:2px;text-align:center;color:var(--muted)}
+.pickup-details{max-width:1240px;margin:auto;padding:0 28px 64px}
+.pickup-steps{list-style:none;padding:30px 0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pickup-steps li{display:flex;gap:14px;min-width:0}
+.pickup-steps li>span{font-size:12px;color:#657784;padding-top:2px}
+.pickup-steps h2,.pickup-location h2{font-size:16px;line-height:1.4;letter-spacing:0}
+.pickup-steps p{font-size:13px;line-height:1.7;margin-top:8px;color:var(--muted)}
+.pickup-location{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding-top:30px}
+.pickup-location p{font-size:14px;line-height:1.7;margin-top:10px;color:var(--muted);max-width:430px}
+.pickup-location .text-link{font-size:12px;margin-top:12px}
+.pickup-phone{display:inline-flex;align-items:center;min-height:44px;font-size:19px;font-weight:500;margin-top:5px}
+@media(max-width:850px){
+ .pickup-hero{grid-template-columns:minmax(0,1fr);gap:30px;padding:32px 5%}
+ .pickup-copy{max-width:580px;width:100%;margin:auto}
+ .pickup-copy h1{font-size:36px}
+ .pickup-lead{font-size:15px;margin-top:15px}
+ .pickup-photo{max-width:580px;width:100%;margin:auto}
+ .pickup-details{padding:0 5% 40px;max-width:638px}
+ .pickup-steps{grid-template-columns:1fr;gap:24px;padding:26px 0}
+ .pickup-location{grid-template-columns:1fr;gap:24px;padding-top:26px}
+}
+@media(max-width:440px){
+ .pickup-hero{padding-top:26px;gap:24px}
+ .pickup-copy h1{font-size:32px;letter-spacing:-.8px}
+ .pickup-eyebrow{font-size:10px;margin-bottom:13px}
+ .pickup-lead{font-size:14px}
+ .pickup-time-note{margin:21px 0 18px;padding:15px;gap:11px}
+ .pickup-time-note h2{font-size:14px}
+ .pickup-order{width:100%}
+}
